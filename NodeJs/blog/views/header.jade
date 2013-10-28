@@ -1,0 +1,15 @@
+header
+  h1 XBD
+  nav
+    span
+      a(title='home' href='/') Home
+    if user
+      span
+          a(title='post' href='/post') Post
+        span
+          a(title='logout' href='/logout') LogOut
+    else
+      span
+        a(title='login' href='/login') Login
+      span
+        a(title='register' href='/reg') Register

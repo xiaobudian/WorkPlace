@@ -1,0 +1,26 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/jquery-2.0.1.min.js')
+  body
+    include header
+    article
+      if success
+        div= success
+      if error
+        div= error
+      block content
+    include footer
+    
+script.(type='text/javascript')
+  function windowHeight() {
+    var de = document.documentElement;
+    return self.innerHeight || (de && de.clientHeight) || document.body.clientHeight;
+  }
+  $(function () {
+      window.onload = window.onresize = function () {
+        $("article").height(windowHeight()-$(".header").height()-$(".footer").height());
+      }
+  });
